@@ -1,26 +1,25 @@
+import { ConnectedRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router-dom';
+import createStore from './store';
+import Todo from './components/Todo';
+import Login from './components/Login';
+import PrivateRoute from './routes/PrivateRoute';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const history = createBrowserHistory();
+const store = createStore(history);
+
+const App = () => (
+  <Provider store={store} >
+    <ConnectedRouter history={history}>
+      <div>
+        <PrivateRoute exact path="/" component={Todo} />
+        <Route exact path="/login" component={Login} />
+      </div>
+    </ConnectedRouter>
+  </Provider >
+);
 
 export default App;
