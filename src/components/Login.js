@@ -1,3 +1,5 @@
+import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField, Typography } from '@material-ui/core';
+import AccountCircle from "@material-ui/icons/AccountCircle";
 import React from 'react';
 
 class Login extends React.Component {
@@ -28,14 +30,52 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Login Form</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input type='mail' name='email' value={this.state.email} onChange={this.handleInputChange} />
-                    <input type='password' name='password' value={this.state.password} onChange={this.handleInputChange} />
-                    <button type='submit'>Login</button>
-                </form>
-            </div>
+            <Card>
+                <Box p={5} textAlign='center'>
+                    <form onSubmit={this.handleSubmit}>
+                        <CardContent >
+                            <AccountCircle fontSize='large' />
+                            <Typography variant='h5'>Login</Typography>
+                            <List>
+                                <ListItem>
+                                    <TextField
+                                        type='mail'
+                                        label='Email'
+                                        name='email'
+                                        value={this.state.email}
+                                        onChange={this.handleInputChange}
+                                        margin='normal'
+                                        variant='outlined'
+                                        fullWidth
+                                        required
+                                    />
+                                </ListItem>
+                                <ListItem>
+                                    <TextField
+                                        type='password'
+                                        label='Password'
+                                        name='password'
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                        margin='normal'
+                                        variant='outlined'
+                                        fullWidth
+                                        required
+                                    />
+                                </ListItem>
+                            </List>
+                        </CardContent>
+                        <CardActions>
+                            <Button
+                                type='submit'
+                                variant='contained'
+                                color='primary'
+                                fullWidth
+                            >Login</Button>
+                        </CardActions>
+                    </form>
+                </Box >
+            </Card >
         );
     }
 

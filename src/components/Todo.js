@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Todo = ({ doLogout }) => (
+const Todo = () => (
     <div>
-        <div>Todo Page</div>
-        <button onClick={doLogout}>Logout</button>
+        <div>Todo Page Works!</div>
     </div>
 );
 
