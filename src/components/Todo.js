@@ -11,6 +11,10 @@ class Todo extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.props.fetchTodos();
+    }
+
     handleChange = (event) => {
         this.setState({
             ...this.state,

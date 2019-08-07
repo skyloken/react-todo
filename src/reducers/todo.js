@@ -4,14 +4,11 @@ const initialState = {
 
 export default function todoReducer(state = initialState, action) {
     switch (action.type) {
-        case 'ADD_TASK':
+        case 'RECEIVE_TODOS':
             return {
                 ...state,
-                todos: state.todos.concat([{
-                    task: action.payload.task,
-                    isDone: false
-                }])
-            };
+                todos: action.payload.todos
+            }
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import firebase from '../firebase';
+import { auth } from '../firebase';
 
 export const loading = () => ({
     type: 'LOADING'
@@ -19,7 +19,7 @@ export const unauthed = () => ({
 
 export const authenticate = () => {
     return dispatch => {
-        firebase.auth().onAuthStateChanged(user => {
+        auth.onAuthStateChanged(user => {
             if (user !== null) {
                 dispatch(authed());
             } else {
@@ -35,7 +35,7 @@ export const login = (email, password) => {
 
         // ログイン
         dispatch(loading());
-        firebase.auth().signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .then(() => {
                 dispatch(push('/'));
             })
@@ -51,7 +51,7 @@ export const login = (email, password) => {
 export const logout = () => {
     return (dispatch) => {
         dispatch(loading());
-        firebase.auth().signOut()
+        auth.signOut()
             .then(() => {
                 dispatch(push('/login'))
             });
