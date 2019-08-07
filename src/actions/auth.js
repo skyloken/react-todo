@@ -1,10 +1,15 @@
 import { push } from 'connected-react-router';
 import firebase from '../firebase';
-import { loaded, loading } from './app';
+import { loaded, loading, authed, unauthed } from './app';
 
 export const authenticate = () => {
     return dispatch => {
         firebase.auth().onAuthStateChanged(user => {
+            if (user !== null) {
+                dispatch(authed());
+            } else {
+                dispatch(unauthed());
+            }
             dispatch(loaded());
         });
     }

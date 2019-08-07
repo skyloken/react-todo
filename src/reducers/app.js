@@ -1,5 +1,6 @@
 const initialState = {
-    loading: true
+    loading: true,
+    authed: false
 };
 
 export default function appReducer(state = initialState, action) {
@@ -13,6 +14,16 @@ export default function appReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false
+            }
+        case 'AUTHED':
+            return {
+                ...state,
+                authed: true
+            }
+        case 'UNAUTHED':
+            return {
+                ...state,
+                authed: false
             }
         default:
             return state;

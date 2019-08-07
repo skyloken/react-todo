@@ -1,11 +1,11 @@
-import { CircularProgress } from '@material-ui/core';
+import { Box, CircularProgress, Container, CssBaseline } from '@material-ui/core';
 import React from 'react';
-import { Link, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import Login from '../containers/Login';
+import Nav from '../containers/Nav';
 import Todo from '../containers/Todo';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
-import Nav from './Nav';
 
 class App extends React.Component {
 
@@ -16,23 +16,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <CssBaseline />
         <Nav />
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/">Todo</Link>
-          </li>
-        </ul>
-        <div>
-          {this.props.loading ? <CircularProgress /> :
-            <Switch>
-              <PrivateRoute exact path='/' component={Todo} />
-              <PublicRoute exact path="/login" component={Login} />
-            </Switch>
-          }
-        </div>
+        <Container maxWidth='sm'>
+          <Box m={5}>
+            {this.props.loading ? <CircularProgress /> :
+              <Switch>
+                <PrivateRoute exact path='/' component={Todo} />
+                <PublicRoute exact path="/login" component={Login} />
+              </Switch>
+            }
+          </Box>
+        </Container>
       </div>
     );
   }

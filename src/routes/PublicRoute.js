@@ -1,12 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
-import firebase from '../firebase';
 
-const PublicRoute = ({ component: Component, ...rest }) => {
+const PublicRoute = ({ authed, component: Component, ...rest }) => {
 
     return (
         <Route {...rest} render={props =>
-            firebase.auth().currentUser === null ? (
+            !authed ? (
                 <Component {...props} />) : (
                     <Redirect to='/' />
                 )
@@ -15,4 +15,8 @@ const PublicRoute = ({ component: Component, ...rest }) => {
 
 }
 
-export default PublicRoute;
+const mapStateToProps = ({ app }) => ({
+    authed: app.authed
+});
+
+export default connect(mapStateToProps)(PublicRoute);
