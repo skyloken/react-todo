@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField, Typography } from '@material-ui/core';
+import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField } from '@material-ui/core';
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import React from 'react';
 
@@ -35,7 +35,6 @@ class Login extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <CardContent >
                             <AccountCircle fontSize='large' />
-                            <Typography variant='h5'>Login</Typography>
                             <List>
                                 <ListItem>
                                     <TextField

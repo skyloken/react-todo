@@ -1,4 +1,4 @@
-import { logout } from "../actions/auth";
+import { logout } from "../actions/app";
 import { connect } from 'react-redux';
 import Nav from '../components/Nav';
 
