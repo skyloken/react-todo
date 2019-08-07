@@ -6,6 +6,7 @@ import Nav from '../containers/Nav';
 import Todo from '../containers/Todo';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
+import './App.css';
 
 class App extends React.Component {
 
@@ -20,7 +21,7 @@ class App extends React.Component {
         <Nav />
         <Container maxWidth='sm'>
           <Box m={5}>
-            {this.props.loading ? <CircularProgress /> :
+            {this.props.loading ? <CircularProgress className='circular-progress' /> :
               <Switch>
                 <PrivateRoute exact path='/' component={Todo} />
                 <PublicRoute exact path="/login" component={Login} />
