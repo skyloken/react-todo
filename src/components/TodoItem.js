@@ -1,13 +1,14 @@
 import { Checkbox, ListItem, ListItemText } from "@material-ui/core";
 import React from 'react';
 
-const TodoItem = ({ task, isDone, handleCheck }) => {
+const TodoItem = ({ todo, handleCheck }) => {
     return (<>
         <ListItem>
             <Checkbox
-                checked={isDone}
+                checked={todo.isDone}
+                onChange={handleCheck(todo.id)}
             />
-            <ListItemText primary={task} style={isDone ? { textDecoration: 'line-through' } : {}} />
+            <ListItemText primary={todo.task} style={todo.isDone ? { textDecoration: 'line-through' } : {}} />
         </ListItem>
     </>);
 }
