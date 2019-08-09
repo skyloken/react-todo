@@ -41,3 +41,29 @@ export const doneTask = (todoId, isDone) => {
         dispatch(fetchTodos());
     }
 }
+
+export const deleteAllTask = () => {
+    return dispatch => {
+        db.collection('todos').where('uid', '==', auth.currentUser.uid)
+            .get().then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    doc.ref.delete();
+                })
+                dispatch(fetchTodos());
+            })
+    }
+}
+
+export const deleteDoneTask = () => {
+    return dispatch => {
+        db.collection('todos').where('uid', '==', auth.currentUser.uid)
+            .get().then(querySnapshot => {
+                querySnapshot.forEach(doc => {
+                    if (doc.data().isDone) {
+                        doc.ref.delete();
+                    }
+                })
+                dispatch(fetchTodos());
+            })
+    }
+}
