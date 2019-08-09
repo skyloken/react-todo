@@ -48,6 +48,24 @@ export const login = (email, password) => {
     }
 }
 
+export const signup = (email, password) => {
+    return dispatch => {
+
+        // サインアップ
+        dispatch(loading());
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                dispatch(push('/login'));
+            })
+            .catch(error => {
+                // サインアップ失敗
+                dispatch(loaded());
+                alert(error.message);
+            });
+
+    }
+}
+
 export const logout = () => {
     return (dispatch) => {
         dispatch(loading());

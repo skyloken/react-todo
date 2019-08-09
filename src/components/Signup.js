@@ -1,8 +1,8 @@
 import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField } from '@material-ui/core';
-import AccountCircle from "@material-ui/icons/AccountCircle";
+import AssignmentTurnedIn from "@material-ui/icons/AssignmentTurnedIn";
 import React from 'react';
 
-class Login extends React.Component {
+class Signup extends React.Component {
 
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ class Login extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.login(this.state.email, this.state.password);
+        this.props.signup(this.state.email, this.state.password);
     }
 
     handleInputChange = (event) => {
@@ -32,9 +32,9 @@ class Login extends React.Component {
         return (
             <Card>
                 <Box p={5} textAlign='center'>
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleSubmit} autoComplete='off'>
                         <CardContent >
-                            <AccountCircle fontSize='large' />
+                            <AssignmentTurnedIn fontSize='large' />
                             <List>
                                 <ListItem>
                                     <TextField
@@ -68,9 +68,9 @@ class Login extends React.Component {
                             <Button
                                 type='submit'
                                 variant='contained'
-                                color='primary'
+                                color='secondary'
                                 fullWidth
-                            >Login</Button>
+                            >Signup</Button>
                         </CardActions>
                     </form>
                 </Box>
@@ -80,4 +80,4 @@ class Login extends React.Component {
 
 }
 
-export default Login;
+export default Signup;
