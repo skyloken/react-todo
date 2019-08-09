@@ -32,3 +32,12 @@ export const addTask = (task) => {
         dispatch(fetchTodos());
     }
 }
+
+export const doneTask = (todoId, isDone) => {
+    return dispatch => {
+        db.collection('todos').doc(todoId).update({
+            isDone
+        })
+        dispatch(fetchTodos());
+    }
+}

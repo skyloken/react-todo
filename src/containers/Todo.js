@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addTask, fetchTodos } from '../actions/todo';
+import { addTask, fetchTodos, doneTask } from '../actions/todo';
 import Todo from '../components/Todo';
 
 const mapStateToProps = ({ todo }) => ({
@@ -12,6 +12,9 @@ const mapDispatchToProps = dispatch => ({
     },
     fetchTodos() {
         dispatch(fetchTodos());
+    },
+    doneTask(todoId, isDone) {
+        dispatch(doneTask(todoId, isDone));
     }
 });
 

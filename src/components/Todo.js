@@ -33,6 +33,11 @@ class Todo extends React.Component {
         }
     }
 
+    handleCheck = todoId => event => {
+        const isDone = event.target.checked;
+        this.props.doneTask(todoId, isDone);
+    }
+
     render() {
         const { todos } = this.props;
         return (
@@ -50,7 +55,7 @@ class Todo extends React.Component {
                         onClick={this.handleClick}>Add</Button>
                     <List style={{ marginTop: 20 }}>
                         {todos.map((todo, i) => (
-                            <TodoItem key={i} task={todo.task} isDone={todo.isDone} />
+                            <TodoItem key={i} todo={todo} handleCheck={this.handleCheck} />
                         ))}
                     </List>
                 </Box>
