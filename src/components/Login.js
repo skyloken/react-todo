@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardContent, List, ListItem, TextField } from '@material-ui/core';
+import { Box, Button, Card, List, ListItem, TextField } from '@material-ui/core';
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import React from 'react';
 
@@ -37,42 +37,41 @@ class Login extends React.Component {
             <Card>
                 <Box p={5} textAlign='center'>
                     <form onSubmit={this.handleSubmit}>
-                        <CardContent >
-                            <AccountCircle fontSize='large' />
-                            <List>
-                                <ListItem>
-                                    <TextField
-                                        type='mail'
-                                        label='Email'
-                                        name='email'
-                                        value={this.state.email}
-                                        onChange={this.handleInputChange}
-                                        margin='normal'
-                                        variant='outlined'
-                                        fullWidth
-                                        required
-                                    />
-                                </ListItem>
-                                <ListItem>
-                                    <TextField
-                                        type='password'
-                                        label='Password'
-                                        name='password'
-                                        value={this.state.password}
-                                        onChange={this.handleInputChange}
-                                        margin='normal'
-                                        variant='outlined'
-                                        fullWidth
-                                        required
-                                    />
-                                </ListItem>
-                            </List>
-                        </CardContent>
+                        <AccountCircle fontSize='large' />
+                        <List>
+                            <ListItem>
+                                <TextField
+                                    type='mail'
+                                    label='Email'
+                                    name='email'
+                                    value={this.state.email}
+                                    onChange={this.handleInputChange}
+                                    margin='normal'
+                                    variant='outlined'
+                                    fullWidth
+                                    required
+                                />
+                            </ListItem>
+                            <ListItem>
+                                <TextField
+                                    type='password'
+                                    label='Password'
+                                    name='password'
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}
+                                    margin='normal'
+                                    variant='outlined'
+                                    fullWidth
+                                    required
+                                />
+                            </ListItem>
+                        </List>
                         <Button
                             type='submit'
                             variant='contained'
                             color='primary'
                             fullWidth
+                            style={{ marginTop: 20 }}
                         >Login</Button>
                     </form>
                     <Button

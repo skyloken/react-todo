@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField } from '@material-ui/core';
+import { Box, Button, Card, List, ListItem, TextField } from '@material-ui/core';
 import AssignmentTurnedIn from "@material-ui/icons/AssignmentTurnedIn";
 import React from 'react';
 
@@ -33,45 +33,41 @@ class Signup extends React.Component {
             <Card>
                 <Box p={5} textAlign='center'>
                     <form onSubmit={this.handleSubmit} autoComplete='off'>
-                        <CardContent >
-                            <AssignmentTurnedIn fontSize='large' />
-                            <List>
-                                <ListItem>
-                                    <TextField
-                                        type='mail'
-                                        label='Email'
-                                        name='email'
-                                        value={this.state.email}
-                                        onChange={this.handleInputChange}
-                                        margin='normal'
-                                        variant='outlined'
-                                        fullWidth
-                                        required
-                                    />
-                                </ListItem>
-                                <ListItem>
-                                    <TextField
-                                        type='password'
-                                        label='Password'
-                                        name='password'
-                                        value={this.state.password}
-                                        onChange={this.handleInputChange}
-                                        margin='normal'
-                                        variant='outlined'
-                                        fullWidth
-                                        required
-                                    />
-                                </ListItem>
-                            </List>
-                        </CardContent>
-                        <CardActions>
-                            <Button
-                                type='submit'
-                                variant='contained'
-                                color='secondary'
-                                fullWidth
-                            >Signup</Button>
-                        </CardActions>
+                        <AssignmentTurnedIn fontSize='large' />
+                        <List>
+                            <ListItem>
+                                <TextField
+                                    type='mail'
+                                    label='Email'
+                                    name='email'
+                                    value={this.state.email}
+                                    onChange={this.handleInputChange}
+                                    margin='normal'
+                                    variant='outlined'
+                                    fullWidth
+                                    required
+                                />
+                            </ListItem>
+                            <ListItem>
+                                <TextField
+                                    type='password'
+                                    label='Password'
+                                    name='password'
+                                    value={this.state.password}
+                                    onChange={this.handleInputChange}
+                                    margin='normal'
+                                    variant='outlined'
+                                    fullWidth
+                                    required
+                                />
+                            </ListItem>
+                        </List>
+                        <Button
+                            type='submit'
+                            variant='contained'
+                            color='secondary'
+                            fullWidth
+                        >Signup</Button>
                     </form>
                 </Box>
             </Card>
