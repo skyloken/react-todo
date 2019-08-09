@@ -1,5 +1,5 @@
 import { push } from 'connected-react-router';
-import { auth } from '../firebase';
+import { auth, googleAuthProvider } from '../firebase';
 
 export const loading = () => ({
     type: 'LOADING'
@@ -45,6 +45,16 @@ export const login = (email, password) => {
                 alert(error.message);
             });
 
+    }
+}
+
+export const googleLogin = () => {
+    return dispatch => {
+        auth.signInWithPopup(googleAuthProvider).then(result => {
+            dispatch(push('/'));
+        }).catch(error => {
+            alert(error.message);
+        });
     }
 }
 

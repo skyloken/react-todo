@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, List, ListItem, TextField } from '@material-ui/core';
+import { Box, Button, Card, CardContent, List, ListItem, TextField } from '@material-ui/core';
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import React from 'react';
 
@@ -15,6 +15,10 @@ class Login extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         this.props.login(this.state.email, this.state.password);
+    }
+
+    handleGoogleLoginClick = () => {
+        this.props.googleLogin();
     }
 
     handleInputChange = (event) => {
@@ -64,15 +68,20 @@ class Login extends React.Component {
                                 </ListItem>
                             </List>
                         </CardContent>
-                        <CardActions>
-                            <Button
-                                type='submit'
-                                variant='contained'
-                                color='primary'
-                                fullWidth
-                            >Login</Button>
-                        </CardActions>
+                        <Button
+                            type='submit'
+                            variant='contained'
+                            color='primary'
+                            fullWidth
+                        >Login</Button>
                     </form>
+                    <Button
+                        variant='contained'
+                        color='primary'
+                        fullWidth
+                        onClick={this.handleGoogleLoginClick}
+                        style={{ marginTop: 20 }}
+                    >Login with Google</Button>
                 </Box>
             </Card>
         );
