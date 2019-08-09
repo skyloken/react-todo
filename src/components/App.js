@@ -3,6 +3,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Login from '../containers/Login';
 import Nav from '../containers/Nav';
+import Signup from '../containers/Signup';
 import Todo from '../containers/Todo';
 import PrivateRoute from '../routes/PrivateRoute';
 import PublicRoute from '../routes/PublicRoute';
@@ -25,6 +26,7 @@ class App extends React.Component {
               <Switch>
                 <PrivateRoute exact path='/' component={Todo} />
                 <PublicRoute exact path="/login" component={Login} />
+                <PublicRoute exact path="/signup" component={Signup} />
               </Switch>
             }
           </Box>
